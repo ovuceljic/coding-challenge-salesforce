@@ -5,8 +5,8 @@
     <externalId>false</externalId>
     <label>GTIN</label>
     <length>13</length>
-    <required>true</required>
-    <trackTrending>false</trackTrending>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
     <type>Text</type>
     <unique>true</unique>
 </CustomField>
