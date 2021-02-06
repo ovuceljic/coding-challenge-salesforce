@@ -27,7 +27,7 @@
                 <field>Selling_Price__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Margin__c</field>
             </layoutItems>
         </layoutColumns>
