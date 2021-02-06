@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Commercial_Director_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Commercial Director Rule</label>
+        <sharedTo>
+            <role>Mr_Commercial_Director</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Purchasing_Price__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>5</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Other_Employees_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Other Employees Sharing Rule</label>
+        <sharedTo>
+            <group>All_Employees</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Purchasing_Price__c</field>
+            <operation>lessThan</operation>
+            <value>5</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>
