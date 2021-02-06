@@ -1,7 +1,9 @@
 public with sharing class StagingProductHandler {
     
-    /*
-     * After insert trigger handler method 
+    /**
+     * afterInsert                  After insert trigger handler method
+     * @param  newStagingProducts   List of Trigger.new instances of Staging_Product__c
+     * Bulkified insert considered
      */
     public static void afterInsert(List<Staging_Product__c> newStagingProducts) {
         List<Product2> productsToInsert = new List<Product2>();
@@ -18,8 +20,11 @@ public with sharing class StagingProductHandler {
         insert productsToInsert;
     }
 
-    /*
-     * After update trigger handler method
+    /**
+     * afterUpdate                  After update trigger handler method
+     * @param  newStagingProducts   List of Trigger.new instances of Staging_Product__c
+     * Method utilizes SObjectUtils class to fetch Product2 instances by GTIN__c identifier 
+     * Bulkified update considered
      */
     public static void afterUpdate(List<Staging_Product__c> newStagingProducts) {
         Map<String, Product2> productsByGTIN = new Map<String, Product2>();
