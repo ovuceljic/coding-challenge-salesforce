@@ -12,4 +12,18 @@ public with sharing class SObjectUtils {
         }
         return objectIds;
     }
+
+    /**
+     * generateRandomString       Method is used generate random 13-digit string, for test purposes
+     */
+    @TestVisible
+    private static String generateRandomString() {
+        final String chars = '0123456789';
+        String randStr = '';
+        while (randStr.length() < 13) {
+            Integer idx = Math.mod(Math.abs(Crypto.getRandomInteger()), chars.length());
+            randStr += chars.substring(idx, idx+1);
+        }
+        return randStr;
+    }
 }
