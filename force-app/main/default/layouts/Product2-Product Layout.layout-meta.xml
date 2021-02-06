@@ -26,6 +26,10 @@
                 <behavior>Edit</behavior>
                 <field>Selling_Price__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Margin__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
