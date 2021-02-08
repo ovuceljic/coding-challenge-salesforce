@@ -15,6 +15,7 @@ public with sharing class SObjectUtils {
 
     /**
      * generateRandomString       Method is used generate random 13-digit string, for test purposes
+     * @return String             Returns a randomly generated String (13 digit) 
      */
     @TestVisible
     private static String generateRandomString() {

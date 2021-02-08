@@ -1,3 +1,46 @@
-<aura:component implements="force:lightningQuickAction"> 
-   <center><b>This is a Lightning component </b></center>
+<aura:component implements="flexipage:availableForRecordHome, force:lightningQuickActionWithoutHeader, force:hasRecordId"> 
+   <aura:attribute name="record" type="Object"/>
+   <aura:attribute name="simpleRecord" type="Object"/>
+   <aura:attribute name="recordError" type="String"/>
+
+   <force:recordData aura:id="recordLoader"
+      fields="Name, GTIN__c, Purchasing_Price__c, Selling_Price__c, Margin__c"
+      recordId="{!v.recordId}"
+      targetFields="{!v.simpleRecord}"
+      />
+
+   <!-- Display a lightning card with details about the record -->
+   <div class="Record Details"> 
+   <center><div class="slds-text-heading_small" style="background-color: orange; margin: 5px 0px;">Product Information</div></center>
+   <lightning:card>
+      <div class="slds-p-horizontal--small" style="display:flex">
+         <p class="slds-text-heading--small" style="margin-right:15px">Name: </p>
+         <p class="slds-text-heading--small" style="margin-bottom: 5px">
+               <lightning:formattedText value="{!v.simpleRecord.Name}"/></p>
+      </div>
+      <div class="slds-p-horizontal--small" style="display:flex">
+         <p class="slds-text-heading--small" style="margin-right:15px">GTIN: </p>
+         <p class="slds-text-heading--small">
+               <lightning:formattedText value="{!v.simpleRecord.GTIN__c}"/></p>
+      </div>
+   </lightning:card>
+   <center><div class="slds-text-heading_small" style="background-color: yellow; margin: 10px 0px 5px 0px;">Prices and Margin</div></center>
+   <lightning:card>
+      <div class="slds-p-horizontal--small" style="display:flex">
+         <p class="slds-text-heading--small" style="margin-right:15px">Purchasing Price: </p>
+         <p class="slds-text-heading--small" style="margin-bottom: 5px">
+               <lightning:formattedNumber  style="decimal" minimumSignificantDigits="5" value="{!v.simpleRecord.Purchasing_Price__c}"/></p>
+      </div>
+      <div class="slds-p-horizontal--small" style="display:flex">
+         <p class="slds-text-heading--small" style="margin-right:15px">Selling Price: </p>
+         <p class="slds-text-heading--small">
+               <lightning:formattedNumber  style="decimal" minimumSignificantDigits="5" value="{!v.simpleRecord.Selling_Price__c}"/></p>
+      </div>
+      <div class="slds-p-horizontal--small" style="display:flex">
+         <p class="slds-text-heading--small" style="margin-right:15px">Margin: </p>
+         <p class="slds-text-heading--small">
+               <lightning:formattedNumber style="percent" maximumFractionDigits="5" value="{!v.simpleRecord.Margin__c/100}"/></p>
+      </div>
+   </lightning:card>
+   </div>
 </aura:component>
