@@ -1,7 +1,11 @@
 public with sharing class ProductHandler {
     
     /**
-     * 
+     * afterUpdate                     After update trigger handler method
+     * @param  newStagingProductsMap   Map of new trigger values for Product2
+     * @param  oldStagingProductsMap   Map of old trigger values for Product2
+     * Email-related logic handed over to EmailHandler class
+     * @return 'void'
      */
     public static void afterUpdate(Map<Id,Product2> newStagingProductsMap, Map<Id,Product2> oldStagingProductsMap) {
         //these maps will be used in case there has been a Selling Price change by more than 10%
