@@ -4,7 +4,7 @@ trigger StagingProductTrigger on Staging_Product__c (after insert, after update)
             StagingProductHandler.afterInsert(Trigger.new);
         }
         if(Trigger.isUpdate) {
-            StagingProductHandler.afterUpdate(Trigger.new);
+            StagingProductHandler.afterUpdate(Trigger.newMap, Trigger.oldMap);
         }
     }
 }
