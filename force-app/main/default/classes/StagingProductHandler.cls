@@ -35,28 +35,10 @@ public with sharing class StagingProductHandler {
             productsByGTIN.put(p.GTIN__c, p);
         }
 
-        //these maps will be used in case there has been a Selling Price change by more than 10%
-        Map<Id,Staging_Product__c> priceSensitiveProductsMapNewValues = new Map<Id, Staging_Product__c>();
-        Map<Id,Staging_Product__c> priceSensitiveProductsMapOldValues = new Map<Id, Staging_Product__c>();
-
         for(Staging_Product__c sp: newStagingProductsMap.values()) {
             productsByGTIN.get(sp.GTIN__c).Purchasing_Price__c = sp.Purchasing_Price__c;
             productsByGTIN.get(sp.GTIN__c).Selling_Price__c = sp.Selling_Price__c;
-
-            //check if the price has changed by more than 10% (both up and down)
-            if((sp.Selling_Price__c > oldStagingProductsMap.get(sp.Id).Selling_Price__c*1.1) || (sp.Selling_Price__c < oldStagingProductsMap.get(sp.Id).Selling_Price__c*0.9)) {
-                priceSensitiveProductsMapNewValues.put(sp.Id, sp);
-                priceSensitiveProductsMapOldValues.put(sp.Id, oldStagingProductsMap.get(sp.Id));
-            }
         }
         update productsByGTIN.values();
-        
-        if(priceSensitiveProductsMapNewValues.size() > 0 && priceSensitiveProductsMapOldValues.size() > 0) {
-            EmailHandler.notifyCommercialDirector(
-                priceSensitiveProductsMapNewValues,
-                priceSensitiveProductsMapOldValues
-            );
-        }
     }
-
 }
