@@ -61,4 +61,17 @@ public with sharing class StagingProductTriggerTest {
             System.assertEquals(updatedStagingProducts[i].Selling_Price__c, updatedProducts[i].Selling_Price__c, 'Selling_Price__c values should match');
         }
     }
+
+    @isTest 
+    static void updateProductsAndNotifyCommercialDirector() {
+        List<Staging_Product__c> stagingProductsToUpdate = [SELECT Purchasing_Price__c, Selling_Price__c FROM Staging_Product__c];
+        for(Staging_Product__c p: stagingProductsToUpdate) {
+            p.Selling_Price__c = p.Selling_Price__c + 200;
+        }
+        Test.startTest();
+        update stagingProductsToUpdate;
+        Integer emailInvocations = Limits.getEmailInvocations();
+        Test.stopTest();
+        System.assertEquals(1, emailInvocations, 'An email should be sent to notify the commercial director about the Selling Price uptick');
+    }
 }
