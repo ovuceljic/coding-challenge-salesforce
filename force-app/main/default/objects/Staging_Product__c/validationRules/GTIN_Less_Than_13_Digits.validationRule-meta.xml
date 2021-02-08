@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GTIN_Less_Than_13_Digits</fullName>
+    <active>true</active>
+    <description>Throw an error in case GTIN is less than 13 digits long, or if it contains non-digit values</description>
+    <errorConditionFormula>NOT(REGEX(GTIN__c, &quot;[0-9]{13}&quot;))</errorConditionFormula>
+    <errorMessage>GTIN must be a 13-digit value!</errorMessage>
+</ValidationRule>
