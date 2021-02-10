@@ -108,7 +108,7 @@ Automation requirements have been handled via Apex Code, that has 100% test cove
 # Test Classes 
 
     - ProductTriggerTest.cls 
-    - StagingProductHandler.cls 
+    - StagingProductHandlerTest.cls 
 
 
 
