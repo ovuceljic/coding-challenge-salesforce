@@ -1,5 +1,6 @@
 import { LightningElement, wire, api } from 'lwc';
 import { getRecord } from 'lightning/uiRecordApi';
+import getStagingProductDetails from '@salesforce/apex/ProductDetailController.getStagingProductDetails';
 
 export default class ProductDetailLightningWebComponent extends LightningElement {
     @api recordId;
@@ -14,4 +15,8 @@ export default class ProductDetailLightningWebComponent extends LightningElement
         ]
     })
     product;
+
+    @wire(getStagingProductDetails, {productId: '$recordId'})
+    stagingProducts;
+    
 }
