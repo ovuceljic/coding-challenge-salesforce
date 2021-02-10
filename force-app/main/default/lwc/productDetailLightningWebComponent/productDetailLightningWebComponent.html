@@ -1,35 +1,35 @@
 <template>
 <center><div class="slds-text-heading_small" style="background-color: orange; margin: 5px 0px;">Product Information</div></center>
-    <lightning-card>
-        <div class="slds-p-horizontal--small" style="display:flex">
-            <p class="slds-text-heading--small" style="margin-right:15px">Name: </p>
-            <p class="slds-text-heading--small" style="margin-bottom: 5px">
-                <lightning-formatted-text></lightning-formatted-text></p>
-        </div>
-        <div class="slds-p-horizontal--small" style="display:flex">
-            <p class="slds-text-heading--small" style="margin-right:15px">GTIN: </p>
-            <p class="slds-text-heading--small">
-                <lightning-formatted-text></lightning-formatted-text></p>
-        </div>
-    </lightning-card>
+    <template if:true={product.data}>
+        <lightning-card>
+            <div class="slds-p-horizontal--small" style="display:flex">
+                <p class="slds-text-heading--small" style="margin-right:15px">Name: <b>{product.data.fields.Name.value}</b></p>
+            </div>
+            <div class="slds-p-horizontal--small" style="display:flex">
+                <p class="slds-text-heading--small" style="margin-right:15px">GTIN: <b>{product.data.fields.GTIN__c.value}</b></p>
+            </div>
+        </lightning-card>
+    </template>
 <center><div class="slds-text-heading_small" style="background-color: yellow; margin: 10px 0px 5px 0px;">Prices and Margin</div></center>
-    <lightning-card>
-        <div class="slds-p-horizontal--small" style="display:flex">
-            <p class="slds-text-heading--small" style="margin-right:15px">Purchasing Price: </p>
-            <p class="slds-text-heading--small" style="margin-bottom: 5px">
-                <lightning-formatted-number></lightning-formatted-number></p>
-        </div>
-        <div class="slds-p-horizontal--small" style="display:flex">
-            <p class="slds-text-heading--small" style="margin-right:15px">Selling Price: </p>
-            <p class="slds-text-heading--small">
-                <lightning-formatted-number></lightning-formatted-number></p>
-        </div>
-        <div class="slds-p-horizontal--small" style="display:flex; margin-bottom:10px;">
-            <p class="slds-text-heading--small" style="margin-right:15px">Margin: </p>
-            <p class="slds-text-heading--small">
-                <lightning-formatted-number></lightning-formatted-number></p>
-        </div>
-    </lightning-card>
+    <template if:true={product.data}>
+        <lightning-card>
+            <div class="slds-p-horizontal--small" style="display:flex">
+                <p class="slds-text-heading--small" style="margin-right:15px">Purchasing Price:</p>
+                <p class="slds-text-heading--small" style="margin-bottom: 5px">
+                    <lightning-formatted-number value={product.data.fields.Purchasing_Price__c.value} minimum-significant-digits="5"></lightning-formatted-number></p>
+            </div>
+            <div class="slds-p-horizontal--small" style="display:flex">
+                <p class="slds-text-heading--small" style="margin-right:15px">Selling Price:</p>
+                <p class="slds-text-heading--small">
+                    <lightning-formatted-number value={product.data.fields.Selling_Price__c.value} minimum-significant-digits="5"></lightning-formatted-number></p>
+            </div>
+            <div class="slds-p-horizontal--small" style="display:flex; margin-bottom:10px;">
+                <p class="slds-text-heading--small" style="margin-right:15px">Margin:</p>
+                <p class="slds-text-heading--small">
+                    <lightning-formatted-number value={product.data.fields.Margin__c.value} format-style="percent" maximum-fraction-digits="5"></lightning-formatted-number></p>
+            </div>
+        </lightning-card>
+    </template>
 <center><div class="slds-text-heading_small" style="background-color: orange; margin: 5px 0px;">Staging Product Information</div></center>
     <lightning-card>
         <div class="slds-p-horizontal--small" style="display:flex">
