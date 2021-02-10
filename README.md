@@ -1,4 +1,4 @@
-# Author: [Ognjen Vuceljic] (mailto:ognjen.vuceljic@gmail.com)
+# Author: [Ognjen Vuceljic](mailto:ognjen.vuceljic@gmail.com)
 # Picnic Take-Home Assignment 
 
 
