@@ -21,7 +21,7 @@ Please find the created metadata overview below:
 
     Layout:
 
-    - Product2 Layout
+        - Product2 Layout
 
 
     Staging_Product__c
@@ -41,22 +41,22 @@ Please find the created metadata overview below:
 
 # Custom Labels
 
-    - CustomLabels.labels-meta.xml file was created in case multilingual support is required.
+    - CustomLabels.labels-meta.xml --> File was created in case multilingual support is required.
 
 # Groups 
 
-    - AllEmployees.group-meta.xml file was created as one of the requirements states that Staging_Product__c can be edited by anyone if Purchasing_Price__c < 5.00 
+    - AllEmployees.group-meta.xml --> File was created as one of the requirements states that Staging_Product__c can be edited by anyone if Purchasing_Price__c < 5.00 
 
     AllEmployees group is referenced in the Sharing Setting.
 
 
 # Permission Sets
 
-    - Picnic_Employees_Permission_Set.permissionset-meta.xml    -  Permission Set that handles field, object, and tab level security for Product2 and Staging_Product__c
+    - Picnic_Employees_Permission_Set.permissionset-meta.xml    -->  Permission Set that handles field, object, and tab level security for Product2 and Staging_Product__c
 
 # Quick Actions
 
-    - Product2.Product_Detail_Page.quickAction-meta.xml    - Quick Action that opens Product2 detail LWC
+    - Product2.Product_Detail_Page.quickAction-meta.xml   --> Quick Action that opens Product2 detail LWC
 
 # Roles 
 
@@ -68,16 +68,23 @@ Please find the created metadata overview below:
 
 # Sharing Rules 
 
-    - Staging_Product__c.sharingRules-meta.xml     - Sharing Rule that opens up record access based on criteria specified in the assignment requirements.
+    - Staging_Product__c.sharingRules-meta.xml   --> Sharing Rule that opens up record access based on criteria specified in the assignment requirements.
 
 # Tabs
 
-    - Staging_Product__c.tab-meta.xml    - Custom object Tab that'll have to be added to App via AppManager
+    - Staging_Product__c.tab-meta.xml   --> Custom object Tab that'll have to be added to App via AppManager
 
 
-**CUSTOM APEX CODE**
+
+
+
+
+# CUSTOM APEX CODE
 
 Automation requirements have been handled via Apex Code, that has 100% test coverage.
+
+
+
 
 # Triggers 
 
