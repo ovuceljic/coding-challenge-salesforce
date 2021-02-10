@@ -1,6 +1,4 @@
-# picnic-challenge
-
-# Author: Ognjen Vuceljic
+# Author: [Ognjen Vuceljic] (mailto:ognjen.vuceljic@gmail.com)
 # Picnic Take-Home Assignment 
 
 
@@ -15,6 +13,7 @@ Please find the created metadata overview below:
 # Objects
 
     Product2 - with new custom fields
+
         - GTIN__c
         - Margin__c (formula field, calculated based on Purchasing and Selling Price)
         - Purchasing_Price__c 
@@ -24,82 +23,85 @@ Please find the created metadata overview below:
 
     - Product2 Layout
 
+
     Staging_Product__c
+
         - GTIN__c
         - Purchasing_Price__c
         - Selling_Price__c
 
+
     Validation Rule:
 
-    - Staging_Product__c REGEX validation that ensures GTIN__c is always a 13-digit value 
+        - Staging_Product__c REGEX validation that ensures GTIN__c is always a 13-digit value 
 
     Layout:
     
-    - Staging_Product__c Layout
+        - Staging_Product__c Layout
 
 # Custom Labels
 
-    CustomLabels.labels-meta.xml file was created in case multilingual support is required.
+    - CustomLabels.labels-meta.xml file was created in case multilingual support is required.
 
 # Groups 
 
-    AllEmployees.group-meta.xml file was created as one of the requirements states that Staging_Product__c can be edited by anyone if Purchasing_Price__c < 5.00 
+    - AllEmployees.group-meta.xml file was created as one of the requirements states that Staging_Product__c can be edited by anyone if Purchasing_Price__c < 5.00 
 
     AllEmployees group is referenced in the Sharing Setting.
 
 
 # Permission Sets
 
-    Picnic_Employees_Permission_Set.permissionset-meta.xml    -  Permission Set that handles field, object, and tab level security for Product2 and Staging_Product__c
+    - Picnic_Employees_Permission_Set.permissionset-meta.xml    -  Permission Set that handles field, object, and tab level security for Product2 and Staging_Product__c
 
 # Quick Actions
 
-    Product2.Product_Detail_Page.quickAction-meta.xml    - Quick Action that opens Product2 detail LWC
+    - Product2.Product_Detail_Page.quickAction-meta.xml    - Quick Action that opens Product2 detail LWC
 
-    #Roles 
+# Roles 
 
-        - CEO.role-meta.xml
-        - Mr_Commercial_Director.role-meta.xml
-        - Other_Employees.role-meta.xml 
+    - CEO.role-meta.xml
+    - Mr_Commercial_Director.role-meta.xml
+    - Other_Employees.role-meta.xml 
 
-        Roles have been created for purposes of showing how record-level access is handled for different types of employees in the system.
+    Roles have been created for purposes of showing how record-level access is handled for different types of employees in the system.
 
 # Sharing Rules 
 
-    Staging_Product__c.sharingRules-meta.xml     - Sharing Rule that opens up record access based on criteria specified in the assignment requirements.
+    - Staging_Product__c.sharingRules-meta.xml     - Sharing Rule that opens up record access based on criteria specified in the assignment requirements.
 
-    #Tabs
+# Tabs
 
-    Staging_Product__c.tab-meta.xml    - Custom object Tab that'll have to be added to App via AppManager
+    - Staging_Product__c.tab-meta.xml    - Custom object Tab that'll have to be added to App via AppManager
 
 
 **CUSTOM APEX CODE**
 
-    Automation requirements have been handled via Apex Code, that has 100% test coverage.
+Automation requirements have been handled via Apex Code, that has 100% test coverage.
 
 # Triggers 
 
-    ProductTrigger.trigger
-    StagingProductTrigger.trigger 
+    - ProductTrigger.trigger
+    - StagingProductTrigger.trigger 
 
 
 # Trigger Handler Classes 
 
-    ProductHandler.cls 
-    StagingProductHandler.cls 
+    - ProductHandler.cls 
+    - StagingProductHandler.cls 
 
 # Utility Classes 
 
-    SObjectUtils.cls  
-    TestDataFactory.cls 
-    EmailHandler.cls 
-    PicnicConstants.cls 
+    - SObjectUtils.cls  
+    - TestDataFactory.cls 
+    - EmailHandler.cls 
+    - PicnicConstants.cls 
 
 
 # Test Classes 
 
-    ProductTriggerTest.cls 
-    StagingProductHandler.cls 
+    - ProductTriggerTest.cls 
+    - StagingProductHandler.cls 
 
 
 
