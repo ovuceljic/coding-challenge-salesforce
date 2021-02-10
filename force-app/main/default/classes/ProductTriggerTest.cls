@@ -14,45 +14,93 @@ public with sharing class ProductTriggerTest {
 
     @isTest
     static void updateProductWithEmailSending_PriceIncreased() {
-        Product2 p = [SELECT Selling_Price__c FROM Product2 LIMIT 1];
-        Test.startTest();
-        p.Selling_Price__c = p.Selling_Price__c*1.2;
-        update p;
-        Integer emailInvocations = Limits.getEmailInvocations();
-        Test.stopTest();
+        User u = TestDataFactory.createUser(
+            'Standard User',
+            PicnicConstants.COMMERCIAL_DIRECTOR_ROLE_NAME
+        );
+        User u2 = TestDataFactory.createUser(
+            'System Administrator',
+            'CEO'
+        );
+
+        Integer emailInvocations = null;
+        System.runAs(u2) {
+            Product2 p = [SELECT Selling_Price__c FROM Product2 LIMIT 1];
+            Test.startTest();
+            p.Selling_Price__c = p.Selling_Price__c*1.2;
+            update p;
+            emailInvocations = Limits.getEmailInvocations();
+            Test.stopTest();
+        }
         System.assertEquals(1, emailInvocations, 'Email should be sent to Commercial Director as a result of Product update');
     }
 
     @isTest
     static void updateProductWithEmailSending_PriceDecreased() {
-        Product2 p = [SELECT Selling_Price__c FROM Product2 LIMIT 1];
-        Test.startTest();
-        p.Selling_Price__c = p.Selling_Price__c*0.8;
-        update p;
-        Integer emailInvocations = Limits.getEmailInvocations();
-        Test.stopTest();
+        User u = TestDataFactory.createUser(
+            'Standard User',
+            PicnicConstants.COMMERCIAL_DIRECTOR_ROLE_NAME
+        );
+        User u2 = TestDataFactory.createUser(
+            'System Administrator',
+            'CEO'
+        );
+        Integer emailInvocations = null;
+        System.runAs(u2) {
+            Product2 p = [SELECT Selling_Price__c FROM Product2 LIMIT 1];
+            Test.startTest();
+            p.Selling_Price__c = p.Selling_Price__c*0.8;
+            update p;
+            emailInvocations = Limits.getEmailInvocations();
+            Test.stopTest();
+        }
         System.assertEquals(1, emailInvocations, 'Email should be sent to Commercial Director as a result of Product update');
     }
 
     @isTest
     static void updateProductWithNoEmailSending_PriceIncreased_Edge() {
-        Product2 p = [SELECT Selling_Price__c FROM Product2 LIMIT 1];
-        Test.startTest();
-        p.Selling_Price__c = p.Selling_Price__c*1.1;
-        update p;
-        Integer emailInvocations = Limits.getEmailInvocations();
-        Test.stopTest();
+        User u = TestDataFactory.createUser(
+            'Standard User',
+            PicnicConstants.COMMERCIAL_DIRECTOR_ROLE_NAME
+        );
+        User u2 = TestDataFactory.createUser(
+            'System Administrator',
+            'CEO'
+        );
+
+        Integer emailInvocations = null;
+        System.runAs(u2) {
+            Product2 p = [SELECT Selling_Price__c FROM Product2 LIMIT 1];
+            Test.startTest();
+            p.Selling_Price__c = p.Selling_Price__c*1.1;
+            update p;
+            emailInvocations = Limits.getEmailInvocations();
+            Test.stopTest();
+        }
         System.assertEquals(0, emailInvocations, 'No Email should be sent to Commercial Director as a result of Product update');
     }
 
     @isTest
     static void updateProductWithNoEmailSending_PriceDecreased_Edge() {
-        Product2 p = [SELECT Selling_Price__c FROM Product2 LIMIT 1];
-        Test.startTest();
-        p.Selling_Price__c = p.Selling_Price__c*0.9;
-        update p;
-        Integer emailInvocations = Limits.getEmailInvocations();
-        Test.stopTest();
+        User u = TestDataFactory.createUser(
+            'Standard User',
+            PicnicConstants.COMMERCIAL_DIRECTOR_ROLE_NAME
+        );
+        User u2 = TestDataFactory.createUser(
+            'System Administrator',
+            'CEO'
+        );
+
+        Integer emailInvocations = null;
+        System.runAs(u2) {
+            Product2 p = [SELECT Selling_Price__c FROM Product2 LIMIT 1];
+            Test.startTest();
+            p.Selling_Price__c = p.Selling_Price__c*0.9;
+            update p;
+            emailInvocations = Limits.getEmailInvocations();
+            Test.stopTest();
+        }
+
         System.assertEquals(0, emailInvocations, 'No Email should be sent to Commercial Director as a result of Product update');
     }
 }
