@@ -8,26 +8,26 @@ Dear all,
 
 welcome to my Take-Home assignment solution. The aim of the document is to provide enough information about how the solution has been implemented, as well as the overview about created metadata in Developer Org.
 
-The solution has been created in a way that metadata is retrieved from target org, pushed to git  ----> once a new Developer/Admin clones the git repo to their local environment, the project can be easily deployed to a new target org using sfdx:force:source:deploy command (with -x referencing package.xml file).
+The solution has been created in a way that metadata is retrieved from target org, pushed to git  ----> once a new Developer/Admin clones the git repo to their local environment, the project can be easily deployed to a new target org using *sfdx:force:source:deploy* command (with -x referencing *package.xml* file).
 
 Please find the created metadata overview below:
 
-#Objects
+# Objects
 
-Product2 - with new custom fields
-    - GTIN__c
-    - Margin__c (formula field, calculated based on Purchasing and Selling Price)
-    - Purchasing_Price__c 
-    - Selling_Price__c
+    Product2 - with new custom fields
+        - GTIN__c
+        - Margin__c (formula field, calculated based on Purchasing and Selling Price)
+        - Purchasing_Price__c 
+        - Selling_Price__c
 
     Layout:
 
     - Product2 Layout
 
-Staging_Product__c
-    - GTIN__c
-    - Purchasing_Price__c
-    - Selling_Price__c
+    Staging_Product__c
+        - GTIN__c
+        - Purchasing_Price__c
+        - Selling_Price__c
 
     Validation Rule:
 
@@ -37,69 +37,69 @@ Staging_Product__c
     
     - Staging_Product__c Layout
 
-#Custom Labels
+# Custom Labels
 
-CustomLabels.labels-meta.xml file was created in case multilingual support is required.
+    CustomLabels.labels-meta.xml file was created in case multilingual support is required.
 
-#Groups 
+# Groups 
 
-AllEmployees.group-meta.xml file was created as one of the requirements states that Staging_Product__c can be edited by anyone if Purchasing_Price__c < 5.00 
+    AllEmployees.group-meta.xml file was created as one of the requirements states that Staging_Product__c can be edited by anyone if Purchasing_Price__c < 5.00 
 
-AllEmployees group is referenced in the Sharing Setting.
-
-
-#Permission Sets
-
-Picnic_Employees_Permission_Set.permissionset-meta.xml    -  Permission Set that handles field, object, and tab level security for Product2 and Staging_Product__c
-
-#Quick Actions
-
-Product2.Product_Detail_Page.quickAction-meta.xml    - Quick Action that opens Product2 detail LWC
-
-#Roles 
-
-    - CEO.role-meta.xml
-    - Mr_Commercial_Director.role-meta.xml
-    - Other_Employees.role-meta.xml 
-
-    Roles have been created for purposes of showing how record-level access is handled for different types of employees in the system. For
-
-#Sharing Rules 
-
-Staging_Product__c.sharingRules-meta.xml     - Sharing Rule that opens up record access based on criteria specified in the assignment requirements.
-
-#Tabs
-
-Staging_Product__c.tab-meta.xml    - Custom object Tab that'll have to be added to App via AppManager
+    AllEmployees group is referenced in the Sharing Setting.
 
 
-** CUSTOM APEX CODE  **
+# Permission Sets
 
-Automation requirements have been handled via Apex Code, that has 100% test coverage.
+    Picnic_Employees_Permission_Set.permissionset-meta.xml    -  Permission Set that handles field, object, and tab level security for Product2 and Staging_Product__c
 
-#Triggers 
+# Quick Actions
 
-ProductTrigger.trigger
-StagingProductTrigger.trigger 
+    Product2.Product_Detail_Page.quickAction-meta.xml    - Quick Action that opens Product2 detail LWC
+
+    #Roles 
+
+        - CEO.role-meta.xml
+        - Mr_Commercial_Director.role-meta.xml
+        - Other_Employees.role-meta.xml 
+
+        Roles have been created for purposes of showing how record-level access is handled for different types of employees in the system.
+
+# Sharing Rules 
+
+    Staging_Product__c.sharingRules-meta.xml     - Sharing Rule that opens up record access based on criteria specified in the assignment requirements.
+
+    #Tabs
+
+    Staging_Product__c.tab-meta.xml    - Custom object Tab that'll have to be added to App via AppManager
 
 
-#Trigger Handler Classes 
+**CUSTOM APEX CODE**
 
-ProductHandler.cls 
-StagingProductHandler.cls 
+    Automation requirements have been handled via Apex Code, that has 100% test coverage.
 
-#Utility Classes 
+# Triggers 
 
-SObjectUtils.cls  
-TestDataFactory.cls 
-EmailHandler.cls 
-PicnicConstants.cls 
+    ProductTrigger.trigger
+    StagingProductTrigger.trigger 
 
 
-#Test Classes 
+# Trigger Handler Classes 
 
-ProductTriggerTest.cls 
-StagingProductHandler.cls 
+    ProductHandler.cls 
+    StagingProductHandler.cls 
+
+# Utility Classes 
+
+    SObjectUtils.cls  
+    TestDataFactory.cls 
+    EmailHandler.cls 
+    PicnicConstants.cls 
+
+
+# Test Classes 
+
+    ProductTriggerTest.cls 
+    StagingProductHandler.cls 
 
 
 
