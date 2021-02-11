@@ -52,7 +52,7 @@ Please find the created metadata overview below:
 # Groups 
 
     - AllEmployees.group-meta.xml --> File was created as one of the requirements states that Staging_Product__c
-    can be edited by anyone if **Purchasing_Price__c < 5.00** 
+    can be edited by anyone if Purchasing_Price__c < 5.00 
 
     AllEmployees group is referenced in the Sharing Setting.
 
