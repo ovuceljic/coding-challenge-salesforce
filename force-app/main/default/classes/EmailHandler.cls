@@ -8,17 +8,17 @@ public with sharing class EmailHandler {
      * @return 'void'
      */
     public static void notifyCommercialDirector(Map<Id,Product2> priceSensitiveProductsNewValues, Map<Id,Product2> priceSensitiveProductsOldValues) {
-        User commercialDirector = [
+        List<User> commercialDirectors = [
             SELECT Email
             FROM User 
             WHERE UserRoleId = :[SELECT Id FROM UserRole WHERE Name = :PicnicConstants.COMMERCIAL_DIRECTOR_ROLE_NAME LIMIT 1].Id
             LIMIT 1
         ];
-        if(commercialDirector != null) {
+        if(commercialDirectors != null && commercialDirectors.size() > 0) {
             Messaging.reserveSingleEmailCapacity(2);    
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
             mail.setToAddresses(
-                new List<String> {commercialDirector.Email}
+                new List<String> {commercialDirectors[0].Email}
             );
             mail.setSubject(System.Label.Price_Sensitivity_Subject);
             
