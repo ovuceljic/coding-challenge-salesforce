@@ -75,6 +75,9 @@ Please find the created metadata overview below:
     - Staging_Product__c.tab-meta.xml   --> Custom object Tab that'll have to be added to App via AppManager
 
 
+# Flexipages
+
+    - Product.flexipage-meta.xml    --> Lightning record page for the Product object (includes Product Detail LWC)
 
 
 
@@ -90,7 +93,6 @@ Automation requirements have been handled via Apex Code, that has 100% test cove
 
     - ProductTrigger.trigger
     - StagingProductTrigger.trigger 
-
 
 # Trigger Handler Classes 
 
@@ -109,7 +111,12 @@ Automation requirements have been handled via Apex Code, that has 100% test cove
 
     - ProductTriggerTest.cls 
     - StagingProductHandlerTest.cls 
+    - ProductDetailControllerTest.cls
 
+
+# Test Code Coverage
+
+    - 100% 
 
 
 
