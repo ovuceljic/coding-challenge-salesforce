@@ -39,6 +39,7 @@ Please find the created metadata overview below:
     Validation Rule:
 
         - Staging_Product__c REGEX validation that ensures GTIN__c is always a 13-digit value 
+        - Product__c REGEX validation that ensures GTIN__c is always a 13-digit value 
 
     Layout:
     
@@ -50,7 +51,8 @@ Please find the created metadata overview below:
 
 # Groups 
 
-    - AllEmployees.group-meta.xml --> File was created as one of the requirements states that Staging_Product__c can be edited by anyone if Purchasing_Price__c < 5.00 
+    - AllEmployees.group-meta.xml --> File was created as one of the requirements states that Staging_Product__c
+    can be edited by anyone if **Purchasing_Price__c < 5.00** 
 
     AllEmployees group is referenced in the Sharing Setting.
 
@@ -58,11 +60,6 @@ Please find the created metadata overview below:
 # Permission Sets
 
     - Picnic_Employees_Permission_Set.permissionset-meta.xml    -->  Permission Set that handles field, object, and tab level security for Product2 and Staging_Product__c
-
-# Quick Actions
-
-    - Product2.Product_Detail_Page.quickAction-meta.xml   --> Quick Action that opens Product2 detail LWC
-
 # Roles 
 
     - CEO.role-meta.xml
