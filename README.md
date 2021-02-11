@@ -6,7 +6,11 @@ Dear all,
 
 welcome to my Take-Home assignment solution. The aim of the document is to provide enough information about how the solution has been implemented, as well as the overview about created metadata in Developer Org.
 
-The solution has been created in a way that metadata is retrieved from target org, pushed to git  ----> once a new Developer/Admin clones the git repo to their local environment, the project can be easily deployed to a new target org using *sfdx:force:source:deploy* command (with -x referencing *package.xml* file).
+The solution features updated data model, sharing settings, automation via APEX code, UI enhancements via LWC, and additional features (validation rules, flexipages, custom tabs, custom labels for multilanguage support, etc...)
+
+After the configuration has been applied on the Developer Org, the corresponding metadata was retrieved in VS Code IDE using *sfdx:force:source:retrieve* command, and subsequently pushed to this git repository.
+
+Once a new Developer/Admin clones the git repo to their local environment, the project can be easily deployed to a new target org using *sfdx:force:source:deploy* command (with -x argument referencing *package.xml* file).
 
 Please find the created metadata overview below:
 
