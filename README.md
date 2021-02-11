@@ -33,6 +33,7 @@ Please find the created metadata overview below:
         - GTIN__c
         - Purchasing_Price__c
         - Selling_Price__c
+        - Age__c (Age in days, formula field calculated in the following way: TODAY() - DATEVALUE(CreatedDate))
 
 
     Validation Rule:
